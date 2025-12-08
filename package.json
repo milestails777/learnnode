@@ -3,6 +3,11 @@
   "module": "index.js",
   "type": "module",
   "private": true,
+  "scripts" : {
+    "dev": "vite",
+    "build": "vite build",
+    "start": "bun run index.js"
+  },
   "devDependencies": {
     "@types/bun": "latest",
     "vite": "^7.2.4"
