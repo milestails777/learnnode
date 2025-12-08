@@ -3,13 +3,14 @@
   "module": "index.js",
   "type": "module",
   "private": true,
-  "scripts" : {
+  "scripts": {
     "dev": "vite",
     "build": "vite build",
     "start": "bun run index.js"
   },
   "devDependencies": {
     "@types/bun": "latest",
+    "sass-embedded": "^1.93.3",
     "vite": "^7.2.4"
   },
   "peerDependencies": {
