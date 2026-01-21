@@ -15,4 +15,9 @@
 
 //console.log(boxen('unicorn', {padding: 1}));
 
-console.log("Hello vite");
+//console.log("Hello vite");
+
+import { createApp } from 'vue';
+import App from './App.vue';
+
+const app = createApp(App);
