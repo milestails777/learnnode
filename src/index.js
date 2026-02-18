@@ -18,7 +18,7 @@
 //console.log("Hello vite");
 
 import { createApp } from 'vue';
-import { createMemoryHistory, createWebHashHistory, createRouter } from 'vue-router'
+import { createMemoryHistory, createWebHashHistory, createWebHistory, createRouter } from 'vue-router'
 
 import ToDo from './pages/ToDo.vue';
 import Modals from './pages/modals.vue';
@@ -29,7 +29,7 @@ const routes = [
 ]
 
 export const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes,
 })
 
