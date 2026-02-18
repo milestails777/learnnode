@@ -3,7 +3,7 @@ defineProps(['items', 'title']);
 </script>
 
 <template>
-    <hl>{{ title }}</hl>
+    <h1>{{ title }}</h1>
         <ul>
             <li v-for="item in items" :key="item.id">
                 {{ item.text }}

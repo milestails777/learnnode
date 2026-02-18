@@ -1,14 +1,12 @@
 <script setup>
-defindProps(['active']);
+defineProps(['active']);
 </script>
 
 <template>
     <div class="modal" :class="{'is-active': active }">
         <div class="modal-background" @click="$emit('close')"></div>
         <div class="modal-content">
-            <p class="image is-4by3">
-                <img :src="url" alt="">
-            </p>
+            <slot></slot>
         </div>
         <button class="modal-close is-large" aria-label="close" @click="$emit('close')"></button>
     </div>
