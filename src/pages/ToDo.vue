@@ -37,7 +37,7 @@ function add(){
             </div>
             <div class="control">
                 <button class="button is-info" @click="add">
-                Search
+                Add Item
                 </button>
             </div>
         </div>
