@@ -1,5 +1,5 @@
 module.exports = {
     hello(){
-        console.log('Hello commonJS')
+        console.log('Hello commonJS') 
     }
 }
