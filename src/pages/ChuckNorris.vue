@@ -2,13 +2,9 @@
 import { ref } from 'vue';
 
 let joke = ref('');
-fetch('https://api.chucknorris.io/jokes/random').then(res => {
-    console.log(res.body.json);
-}).then(data => {
-    console.log(data);
-    joke.value = data.value;
-})
-
+let res = await axios.get('https://api.chucknorris.io/jokes/random');
+let data = await res.json();
+joke.value = data.value;
 </script>
 <template>
 <div class="content">
