@@ -1,0 +1,17 @@
+<script setup>
+import { ref } from 'vue';
+
+let joke = ref('');
+fetch('https://api.chucknorris.io/jokes/random').then(res => {
+    console.log(res.body.json);
+}).then(data => {
+    console.log(data);
+    joke.value = data.value;
+})
+
+</script>
+<template>
+<div class="content">
+    <h1>{{ joke }}</h1>
+</div>
+</template>
