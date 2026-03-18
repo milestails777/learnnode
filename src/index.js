@@ -6,13 +6,15 @@ import Modals from './pages/Modals.vue';
 import Messages from './pages/Messages.vue';
 import ChuckNorris from './pages/ChuckNorris.vue';
 import CatFacts from './pages/CatFacts.vue';
+import RickAndMorty from './pages/RickAndMorty.vue';
 
 const routes = [
   { path: '/', component: ToDo, name: 'ToDo' },
   { path: '/modals', component: Modals, name: 'Modals' },
   { path: '/messages', component: Messages, name: 'Messages' },
   { path: '/chuck', component: ChuckNorris, name: 'Chuck Norris'},
-  { path: '/catfacts', component: CatFacts, name: 'Cat Facts' }
+  { path: '/catfacts', component: CatFacts, name: 'Cat Facts' },
+  { path: '/rickandmorty', component: RickAndMorty, name: 'Rick And Morty'}
 ];
 
 export const router = createRouter({
