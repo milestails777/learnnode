@@ -13,16 +13,20 @@ let info = ref({
 characters.value = res.data.results;
 info.value = res.data.info;
 
-async function next() {
+await getCharacters('https://rickandmortyapi.com/api/character');
+
+async function getCharacters() {
     const res = await axios.get(info.value.next);
     characters.value = res.data.results;
     info.value = res.data.info;
 }
 
+async function next() {
+    await getCharacters(info.value.next);
+}
+
 async function prev() {
-    const res = await axios.get(info.value.prev);
-    characters.value = res.data.results;
-    info.value = res.data.info;
+    await getCharacters(info.value.prev);
 }
 
 </script>
