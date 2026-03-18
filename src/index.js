@@ -5,14 +5,14 @@ import ToDo from './pages/ToDo.vue';
 import Modals from './pages/Modals.vue';
 import Messages from './pages/Messages.vue';
 import ChuckNorris from './pages/ChuckNorris.vue';
-import CarFacts from './pages/CarFacts.vue';
+import CatFacts from './pages/CatFacts.vue';
 
 const routes = [
   { path: '/', component: ToDo, name: 'ToDo' },
   { path: '/modals', component: Modals, name: 'Modals' },
   { path: '/messages', component: Messages, name: 'Messages' },
   { path: '/chuck', component: ChuckNorris, name: 'Chuck Norris'},
-  { path: '/carfacts', component: CarFacts, name: 'Car Facts' }
+  { path: '/catfacts', component: CatFacts, name: 'Cat Facts' }
 ];
 
 export const router = createRouter({
