@@ -8,6 +8,7 @@ joke.value = data.value;
 </script>
 <template>
 <div class="content">
+    <h1>Rest In Peace, Chuck Norris. 1948-2026</h1>
     <h1>{{ joke }}</h1>
 </div>
 </template>
