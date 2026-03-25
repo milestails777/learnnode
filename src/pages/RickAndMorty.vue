@@ -2,7 +2,8 @@
 import axios from 'axios';
 import { ref } from 'vue';
 import CharacterCard from '../components/CharacterCard.vue';
-const res = await axios.get('https://rickandmortyapi.com/api/character');
+import PaginationBar from '../components/PaginationBar.vue'; 
+
 let characters = ref([]);
 let info = ref({
     count: 0,
@@ -10,36 +11,60 @@ let info = ref({
     next: null,
     prev: null,
 });
+
+let currentPage = ref(1); 
+
+
+const res = await axios.get('https://rickandmortyapi.com/api/character');
 characters.value = res.data.results;
 info.value = res.data.info;
 
-await getCharacters('https://rickandmortyapi.com/api/character');
 
-async function getCharacters() {
-    const res = await axios.get(info.value.next);
+async function getCharacters(page) {
+    const res = await axios.get(`https://rickandmortyapi.com/api/character?page=${page}`);
     characters.value = res.data.results;
     info.value = res.data.info;
+    currentPage.value = page;
+
+    window.scrollTo(0, 0);
 }
 
+
 async function next() {
-    await getCharacters(info.value.next);
+    if (currentPage.value < info.value.pages) {
+        await getCharacters(currentPage.value + 1);
+    }
 }
 
 async function prev() {
-    await getCharacters(info.value.prev);
+    if (currentPage.value > 1) {
+        await getCharacters(currentPage.value - 1);
+    }
 }
 
+
+function changePage(page) {
+    getCharacters(page);
+}
 </script>
 <template>
+
+
+<PaginationBar
+    :currentPage="currentPage"
+    :totalPages="info.pages"
+    @page-change="changePage"
+/>
+
 <div class="is-flex is-justify-content-space-between mb-2">
-    <button class="button is-primary" :disabled="!info.prev" @click="prev">Prev</button>
-    <button class="button is-primary" :disabled="!info.next" @click="next">Next</button>
+    <button class="button is-primary" :disabled="currentPage === 1" @click="prev">Prev</button>
+    <button class="button is-primary" :disabled="currentPage === info.pages" @click="next">Next</button>
 </div>
 
-
 <div class="columns is-multiline">
-    <div class="column is-3" v-for="character in characters">
+    <div class="column is-3" v-for="character in characters" :key="character.id">
         <CharacterCard :character="character"></CharacterCard>
     </div>
 </div>
+
 </template>
