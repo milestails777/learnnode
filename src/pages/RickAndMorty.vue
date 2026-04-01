@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ref } from 'vue';
 import CharacterCard from '../components/CharacterCard.vue';
 import PaginationBar from '../components/PaginationBar.vue'; 
+import SearchBar from '../components/SearchBar.vue';
 
 let characters = ref([]);
 let info = ref({
@@ -12,7 +13,8 @@ let info = ref({
     prev: null,
 });
 
-let currentPage = ref(1); 
+let currentPage = ref(1);
+let search = ref(""); 
 
 
 const res = await axios.get('https://rickandmortyapi.com/api/character');
@@ -21,11 +23,15 @@ info.value = res.data.info;
 
 
 async function getCharacters(page) {
-    const res = await axios.get(`https://rickandmortyapi.com/api/character?page=${page}`);
+    const res = await axios.get(`https://rickandmortyapi.com/api/character`, {
+        params: {
+            page,
+            name: search.value
+        }
+    });
     characters.value = res.data.results;
     info.value = res.data.info;
     currentPage.value = page;
-
     window.scrollTo(0, 0);
 }
 
@@ -46,9 +52,20 @@ async function prev() {
 function changePage(page) {
     getCharacters(page);
 }
+let debounce = null;
+function doSearch(value) {
+    clearTimeout(debounce);
+    debounce = setTimeout(async () => {
+        search.value = value;
+        await getCharacters(1);
+    }, 400)
+}
 </script>
 <template>
 
+<SearchBar @search="doSearch">
+
+</SearchBar>
 
 <PaginationBar
     :currentPage="currentPage"

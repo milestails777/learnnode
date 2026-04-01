@@ -1,52 +1,33 @@
 <script setup>
-defineProps(['character']);
+defineProps({
+  character: {
+    type: Object,
+    required: true
+  }
+})
 </script>
 
+<style scoped>
+.card {
+  border: 1px solid #ccc;
+  padding: 12px;
+  border-radius: 8px;
+}
+img {
+  width: 100%;
+  border-radius: 8px;
+}
+</style>
+
 <template>
-    <div class="card" >
-            <header class="card-header">
-                <p class="card-header-title">{{character.name}}</p>
-            </header>
-    <div class="card-image">
-        <figure class="image is-4by3">
-            <img :src="character.image" alt="Placeholder image"/>
-        </figure>
-    </div>
-    <div class="card-content">
-        <div class="content">
-            <table>
-                <tbody>
-                    <tr>
-                        <th>Status</th>
-                        <td>{{ character.status }}</td>
-                    </tr>
-                    <tr>
-                        <th>Gender</th>
-                        <td>{{ character.gender }}</td>
-                    </tr>
-                    <tr>
-                        <th>Type</th>
-                        <td>{{ character.type }}</td>
-                    </tr>
-                    <tr>
-                        <th>Species</th>
-                        <td>{{ character.species }}</td>
-                    </tr>
-                    <tr>
-                        <th>Origin</th>
-                        <td>{{ character.origin.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Location</th>
-                        <td>{{ character.location.name }}</td>
-                    </tr>
-                    <tr>
-                        <th>Episodes</th>
-                        <td>{{ character.episode.length }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-</div>
+  <div class="card">
+    <img :src="character.image" :alt="character.name" />
+
+    <h3>{{ character.name }}</h3>
+
+    <p><strong>Status:</strong> {{ character.status }}</p>
+    <p><strong>Species:</strong> {{ character.species }}</p>
+    <p><strong>Gender:</strong> {{ character.gender }}</p>
+    <p><strong>Origin:</strong> {{ character.origin.name }}</p>
+  </div>
 </template>
