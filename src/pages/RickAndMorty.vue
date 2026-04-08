@@ -61,7 +61,6 @@ function debounce(fn, delay) {
     };
 }
 
-
 const doSearch = debounce(async (value) => {
     search.value = value;
     await getCharacters(1);

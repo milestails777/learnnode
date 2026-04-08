@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "start": "bun run index.js"
+    "deploy": "bun run build && cp ./dist/index.html ./dist/200.html && surge ./dist samir-milescibis.surge.sh"
   },
   "devDependencies": {
     "@types/bun": "latest",
@@ -21,6 +21,7 @@
     "@vitejs/plugin-vue": "^6.0.3",
     "axios": "^1.13.6",
     "boxen": "^8.0.1",
+    "surge": "^0.27.3",
     "vue": "^3.5.26",
     "vue-router": "4"
   }
