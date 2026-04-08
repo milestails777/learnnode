@@ -12,7 +12,7 @@
     "@types/bun": "latest",
     "bulma": "^1.0.4",
     "sass-embedded": "^1.93.3",
-    "vite": "^7.2.4"
+    "vite": "^8.0.7"
   },
   "peerDependencies": {
     "typescript": "^5"

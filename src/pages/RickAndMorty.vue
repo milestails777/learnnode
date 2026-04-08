@@ -52,14 +52,21 @@ async function prev() {
 function changePage(page) {
     getCharacters(page);
 }
-let debounce = null;
-function doSearch(value) {
-    clearTimeout(debounce);
-    debounce = setTimeout(async () => {
-        search.value = value;
-        await getCharacters(1);
-    }, 400)
+
+function debounce(fn, delay) {
+    let timeoutId;
+    return (...args) => {
+        clearTimeout(timeoutId);
+        timeoutId = setTimeout(() => fn(...args), delay);
+    };
 }
+
+
+const doSearch = debounce(async (value) => {
+    search.value = value;
+    await getCharacters(1);
+}, 400);
+
 </script>
 <template>
 
