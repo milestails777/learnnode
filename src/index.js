@@ -7,6 +7,7 @@ import Messages from './pages/Messages.vue';
 import ChuckNorris from './pages/ChuckNorris.vue';
 import CatFacts from './pages/CatFacts.vue';
 import RickAndMorty from './pages/RickAndMorty.vue';
+import Canvas from './pages/CanvasExample.vue';
 
 const routes = [
   { path: '/', component: ToDo, name: 'ToDo' },
@@ -14,7 +15,8 @@ const routes = [
   { path: '/messages', component: Messages, name: 'Messages' },
   { path: '/chuck', component: ChuckNorris, name: 'Chuck Norris'},
   { path: '/catfacts', component: CatFacts, name: 'Cat Facts' },
-  { path: '/rickandmorty', component: RickAndMorty, name: 'Rick And Morty'}
+  { path: '/rickandmorty', component: RickAndMorty, name: 'Rick And Morty'},
+  { path: '/canvas', component: Canvas, name: 'CanvasExample'}
 ];
 
 export const router = createRouter({
@@ -26,5 +28,6 @@ export const router = createRouter({
 
 // import the root component App from a single-file component.
 import App from './App.vue';
+import CanvasExample from './pages/CanvasExample.vue';
 
 const app = createApp(App).use(router).mount('#app');
