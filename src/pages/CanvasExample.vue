@@ -16,6 +16,7 @@ onMounted(() => {
         ctx.fill();
         ctx.closePath();
     }, 1000/60);
+    
 });
 
 function move(event) {
